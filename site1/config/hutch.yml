@@ -1,0 +1,6 @@
+consumer_groups:
+  default:
+    - MessageConsumer
+    - NotesConsumer
+  retries:
+    - RetriesConsumer

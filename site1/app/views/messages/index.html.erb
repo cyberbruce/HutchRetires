@@ -1,0 +1,9 @@
+
+
+
+<%= form_with url: messages_path, method: :post do |form| %>
+  
+  <%= form.label :count, "count of messages to send:" %>
+  <%= form.text_field :count %>
+  <%= form.submit "Execute" %>
+<% end %>

@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  web:
+    image: rab1
+    build:
+      context: ./site1      
+    ports:
+      - "3000"
+    volumes:
+      - ./site1:/app
+     
+
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - "3030:15672"
+
+  hutch:
+    image: rab1
+    volumes:
+      - ./site1:/app
+    working_dir: /app
+    command: 'hutch'
+    depends_on: 
+      - rabbit
+      - web
